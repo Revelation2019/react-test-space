@@ -9,7 +9,7 @@ const Main = () => {
     <form action="/exportExcel" method="post">
       <input type="submit" value="提交"/>
     </form>
-  </div>
-}
+  </div>;
+};
 
 export default Main;

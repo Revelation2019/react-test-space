@@ -9,7 +9,7 @@ interface IProps extends RouteConfigComponentProps<void> {
 }
 
 const Computed = (props: IProps) => {
-  return <Provider {...stores}><Main {...props}></Main></Provider>
-}
+  return <Provider {...stores}><Main {...props}></Main></Provider>;
+};
 
 export default Computed;

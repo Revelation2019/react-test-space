@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { observer, inject } from 'mobx-react';
 import KeyofStore from '../store/KeyofStore';
 import { RouteConfigComponentProps } from 'react-router-config';
@@ -6,7 +6,7 @@ import qs from 'query-string';
 
 interface IProps extends RouteConfigComponentProps<{}>{
   keyofStore?: KeyofStore;
-} 
+}
 
 enum Oprate {
   MINUS = 'MINUS',
@@ -14,7 +14,6 @@ enum Oprate {
 }
 
 const Main = (props: IProps) => {
-
   const keyofStore = props.keyofStore;
 
   const oprate = (type: Oprate) => {
@@ -28,14 +27,14 @@ const Main = (props: IProps) => {
       default:
         break;
     }
-  }
+  };
 
   const gotoPage = () => {
     props.history.push({
-      pathname: '/match', 
-      search: qs.stringify({id: 123123})
-    })
-  }
+      pathname: '/match',
+      search: qs.stringify({ id: 123123 })
+    });
+  };
 
   return (
     <div>
@@ -44,7 +43,7 @@ const Main = (props: IProps) => {
       <button onClick={() => oprate(Oprate.PLUS)}>+</button>
       <button onClick={gotoPage}>goto match page</button>
     </div>
-  )
-}
+  );
+};
 
 export default inject('keyofStore')(observer(Main));

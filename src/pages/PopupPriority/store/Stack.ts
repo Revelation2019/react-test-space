@@ -1,25 +1,25 @@
-import { makeAutoObservable } from "mobx";
-import BaseStore from "./BaseStore";
+import { makeAutoObservable } from 'mobx';
+import BaseStore from './BaseStore';
 
 class Stack {
   topStore: BaseStore;
 
-  constructor(topStore: BaseStore) {
+  constructor (topStore: BaseStore) {
     makeAutoObservable(this);
     this.topStore = topStore;
   }
 
   item: any = [];
 
-  get size() {
+  get size () {
     return this.item.length;
   }
 
-  get isEmpty() {
+  get isEmpty () {
     return this.item.length === 0;
   }
 
-  get topEle() {
+  get topEle () {
     return this.item[this.item.length - 1];
   }
 

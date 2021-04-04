@@ -1,13 +1,14 @@
-import { makeAutoObservable, runInAction } from "mobx";
-import { fetchPopup1, fetchPopup2 } from "../api";
+import { makeAutoObservable, runInAction } from 'mobx';
+import { fetchPopup1, fetchPopup2 } from '../api';
 
 import PRIORITY from '../config/priority';
 import Stack from './Stack';
 
 class BaseStore {
-  constructor() {
-    makeAutoObservable(this)
+  constructor () {
+    makeAutoObservable(this);
   }
+
   /** 弹窗优先级-栈 */
   stack: Stack = new Stack(this);
 
@@ -34,7 +35,7 @@ class BaseStore {
       if (code === 200) {
         runInAction(() => {
           this.stack.intoStack(PRIORITY.popup1);
-        })
+        });
       }
     } catch (error) {
       console.log(error);
@@ -48,7 +49,7 @@ class BaseStore {
       if (code === 200) {
         runInAction(() => {
           this.stack.intoStack(PRIORITY.popup2);
-        })
+        });
       }
     } catch (error) {
       console.log(error);

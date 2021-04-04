@@ -1,5 +1,5 @@
-import WorkSpaceStore from "./WorkSpaceStore";
+import WorkSpaceStore from './WorkSpaceStore';
 
 export default {
-  PageStore: new WorkSpaceStore(),
-}
+  PageStore: new WorkSpaceStore()
+};

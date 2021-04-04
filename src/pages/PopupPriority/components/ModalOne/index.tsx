@@ -8,17 +8,16 @@ interface IProps {
 }
 
 const ModalOne = (props: IProps) => {
-
   const { baseStore } = props;
 
   const { showPopupFlag1, setShowPopupFlag1 } = baseStore as BaseStore;
-  console.log('showPopupFlag1', showPopupFlag1)
+  console.log('showPopupFlag1', showPopupFlag1);
 
   return (
-    <Modal 
-      title="Basic Modal" 
-      visible={showPopupFlag1} 
-      onOk={() => setShowPopupFlag1(false)} 
+    <Modal
+      title="Basic Modal"
+      visible={showPopupFlag1}
+      onOk={() => setShowPopupFlag1(false)}
       onCancel={() => setShowPopupFlag1(false)}
     >
       <p>Some contents...</p>
@@ -26,6 +25,6 @@ const ModalOne = (props: IProps) => {
       <p>Some contents...</p>
     </Modal>
   );
-}
+};
 
 export default inject('baseStore')(observer(ModalOne));

@@ -3,5 +3,5 @@ class Store {
 }
 
 export default {
-  store: new Store(),
-}
+  store: new Store()
+};

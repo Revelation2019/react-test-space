@@ -6,18 +6,18 @@ module.exports = function (app) {
   app.use(proxy([
     '/mock/16430'], {
     target: 'https://mock.yonyoucloud.com/',
-    changeOrigin: true,
+    changeOrigin: true
   }));
 
   app.use(proxy([
     '/exportExcel'], {
     target: 'http://localhost:8088/',
-    changeOrigin: true,
+    changeOrigin: true
   }));
 
   app.use(proxy([
     '/ws'], {
     target: 'http://localhost:8888/',
-    changeOrigin: true,
+    changeOrigin: true
   }));
-}
+};

@@ -6,12 +6,12 @@ interface IProps extends RouteConfigComponentProps<void> {
 }
 
 const NoFrame = (props: IProps) => {
-  const {route} = props
+  const { route } = props;
   return (
     <div>
         {renderRoutes(route?.routes)}
     </div>
-  )
-}
+  );
+};
 
 export default React.memo(NoFrame);

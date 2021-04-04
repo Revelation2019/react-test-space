@@ -1,15 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 // import axios from 'axios';
 import $ from 'jquery';
 
 const AbortController = () => {
-
   // const CancelToken = axios.CancelToken;
   // const source = CancelToken.source();
 
   // const abortController = new Controller();
-  var abortController: JQuery.jqXHR<any> | null = null;
+  let abortController: any = null;
 
   useEffect(() => {
     // axios.post('http://127.0.0.1:8088/getData', {name: 'zs', pwd: '123456'}, {cancelToken: source.token})
@@ -39,25 +37,24 @@ const AbortController = () => {
         name: 'zs',
         pwd: '123456'
       }),
-      success: function(res) {
-        console.log(res)
+      success: function (res) {
+        console.log(res);
       }
-    })
-
+    });
   }, []);
 
   const abort = () => {
     // source.cancel('cancle request!');
     // abortController.abort()
-    abortController?.abort()
-  }
+    abortController?.abort();
+  };
 
   return (
     <>
     <div>this is a abortController page.</div>
     <div><button onClick={abort}>取消请求</button></div>
     </>
-  )
-}
+  );
+};
 
 export default AbortController;

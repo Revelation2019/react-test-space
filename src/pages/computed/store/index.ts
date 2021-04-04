@@ -1,6 +1,5 @@
-/* eslint-disable import/no-anonymous-default-export */
-import MainStore from "./MainStore";
+import MainStore from './MainStore';
 
 export default {
-  mainStore: new MainStore(),
-}
+  mainStore: new MainStore()
+};

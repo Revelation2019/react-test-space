@@ -1,6 +1,7 @@
+/* eslint-disable react/display-name */
 
 import { RouteConfig } from 'react-router-config';
-import Loadable from 'react-loadable'
+import Loadable from 'react-loadable';
 import React from 'react';
 import LoadComp from '../components/Loading';
 import Layout from '../layout/NoFrame';
@@ -42,7 +43,7 @@ const routes: CustomRouteConfig[] = [
       },
       {
         path: '/abort',
-        component: LoadComp(React.lazy(() => import('../pages/AbortController'))),
+        component: LoadComp(React.lazy(() => import('../pages/AbortController')))
         // Loadable({
         //   loader: () => import('../pages/AbortController'),
         //   loading: () => React.createElement('span', {}, 'loading')
@@ -50,46 +51,46 @@ const routes: CustomRouteConfig[] = [
       },
       {
         path: '/observable',
-        component: LoadComp(React.lazy(() => import('../pages/Observable'))),
+        component: LoadComp(React.lazy(() => import('../pages/Observable')))
       },
       {
         path: '/table',
-        component: LoadComp(React.lazy(() => import('../pages/Table'))),
+        component: LoadComp(React.lazy(() => import('../pages/Table')))
       },
       {
         path: '/computed',
-        component: LoadComp(React.lazy(() => import('../pages/computed'))),
+        component: LoadComp(React.lazy(() => import('../pages/computed')))
       },
       {
         path: '/webworker',
-        component: LoadComp(React.lazy(() => import('../pages/WebWorker'))),
+        component: LoadComp(React.lazy(() => import('../pages/WebWorker')))
       },
       {
         path: '/popupPriority',
-        component: LoadComp(React.lazy(() => import('../pages/PopupPriority'))),
+        component: LoadComp(React.lazy(() => import('../pages/PopupPriority')))
       },
       {
         path: '/zoomAndDarg',
-        component: LoadComp(React.lazy(() => import('../pages/ZoomAndDarg'))),
+        component: LoadComp(React.lazy(() => import('../pages/ZoomAndDarg')))
       },
       {
         path: '/contentType',
-        component: LoadComp(React.lazy(() => import('../pages/ContentType'))),
+        component: LoadComp(React.lazy(() => import('../pages/ContentType')))
       },
       {
         path: '/exportExcel',
-        component: LoadComp(React.lazy(() => import('../pages/ExcelExport'))),
+        component: LoadComp(React.lazy(() => import('../pages/ExcelExport')))
       },
       {
         path: '/websocket',
-        component: LoadComp(React.lazy(() => import('../pages/Websocket'))),
+        component: LoadComp(React.lazy(() => import('../pages/Websocket')))
       },
       {
         path: '/pony',
-        component: LoadComp(React.lazy(() => import('../pages/Pony'))),
-      },
+        component: LoadComp(React.lazy(() => import('../pages/Pony')))
+      }
     ]
   }
-]
+];
 
-export default routes
+export default routes;

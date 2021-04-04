@@ -15,7 +15,7 @@ const Main = (props: IProps) => {
       {/* <WorkerBlob></WorkerBlob> */}
       <Plugin></Plugin>
     </div>
-  )
-}
+  );
+};
 
 export default Main;

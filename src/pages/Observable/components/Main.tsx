@@ -1,5 +1,5 @@
 import React from 'react';
-import {inject, observer} from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import Store from '../store/store';
 import Count from './Count';
 
@@ -31,11 +31,9 @@ interface IProps {
 
 // export default inject('store')(observer(Main));
 
-
 @inject('store')
 @observer
 class Main extends React.Component<IProps, {}> {
-
   getCount = () => {
     return this.props.store?.count;
   }
@@ -45,8 +43,8 @@ class Main extends React.Component<IProps, {}> {
     store.setCount(store.count + 1);
   }
 
-  render() {
-    console.log('render')
+  render () {
+    console.log('render');
     return (
       <div>
         <Count dom={this.getCount}>
@@ -54,7 +52,7 @@ class Main extends React.Component<IProps, {}> {
         </Count>
         <button onClick={this.plus}>++</button>
       </div>
-    )
+    );
   }
 }
 

@@ -5,10 +5,9 @@ interface IProps {
 }
 
 class Child extends React.Component<IProps, {}> {
-
-  render() {
+  render () {
     const { generateRef } = this.props;
-    return <input type="text" ref={generateRef}/>
+    return <input type="text" ref={generateRef}/>;
   }
 }
 

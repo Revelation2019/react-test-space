@@ -6,20 +6,19 @@ import styles from './index.module.scss';
 
 /** 接口返回的图片坐标是相对于原图左上角的定位 */
 const imgInfo = {
-  lableBottom: "492",
-  lableLeft: "342",
-  lableRight: "353",
-  lableTop: "470",
-  position: "03",
-  src: 'https://parts-images.cassmall.com/bmw_test/322664.jpg?version=16',
-}
+  lableBottom: '492',
+  lableLeft: '342',
+  lableRight: '353',
+  lableTop: '470',
+  position: '03',
+  src: 'https://parts-images.cassmall.com/bmw_test/322664.jpg?version=16'
+};
 
 const WIDTH = 466;
 const HEIGHT = 326;
 const SCALE = 0.2;
 
-const DynamicStyle= () => {
-
+const DynamicStyle = () => {
   const imgRef = React.createRef<HTMLImageElement>();
   /** 初始化缩放比例，默认为1 */
   const [rate, setRate] = useState(1);
@@ -28,17 +27,17 @@ const DynamicStyle= () => {
   /** 记录鼠标是否按下 */
   const [mouseDowmFlag, setMouseDowmFlag] = useState(false);
   /** 记录鼠标按下的坐标 */
-  const [mouseDowmPos, setMouseDowmPos] = useState<{x: number, y: number}>({x: 0, y: 0})
+  const [mouseDowmPos, setMouseDowmPos] = useState<{x: number, y: number}>({ x: 0, y: 0 });
   /** 图片原始大小，默认设置为1是防止计算图片原始大小与初始大小比例出现无穷大 */
-  const [natural, setNatural] = useState<{width: number, height: number}>({width: 1, height: 1});
+  const [natural, setNatural] = useState<{width: number, height: number}>({ width: 1, height: 1 });
   /** 图片现在大小 */
-  const [initial, setInitial] = useState<{width: number, height: number}>({width: WIDTH, height: HEIGHT});
+  const [initial, setInitial] = useState<{width: number, height: number}>({ width: WIDTH, height: HEIGHT });
 
   useEffect(() => {
     const { naturalWidth, naturalHeight, width, height } = imgRef.current as HTMLImageElement;
     setNatural({ width: naturalWidth, height: naturalHeight });
     setInitial({ width, height });
-  }, [imgRef])
+  }, [imgRef]);
 
   useEffect(() => {
     document.onmouseover = () => {
@@ -49,7 +48,7 @@ const DynamicStyle= () => {
     return () => {
       document.onmouseover = null;
     };
-  }, [mouseDowmFlag])
+  }, [mouseDowmFlag]);
 
   /** 缩放 */
   const handleWheelImage = (event: React.WheelEvent<HTMLImageElement>) => {
@@ -62,18 +61,18 @@ const DynamicStyle= () => {
       const enlargeRate = rate + SCALE;
       setImgStyle({
         ...imgStyle,
-        transform: `matrix(${enlargeRate}, 0, 0, ${enlargeRate}, ${transformX}, ${transformY})`, // 默认以图片中心为原点进行缩放
+        transform: `matrix(${enlargeRate}, 0, 0, ${enlargeRate}, ${transformX}, ${transformY})` // 默认以图片中心为原点进行缩放
       });
       setRate(enlargeRate);
     } else if (bigger < 0 && rate > 1) {
       const shrinkRate = rate - SCALE;
       setImgStyle({
         ...imgStyle,
-        transform: `matrix(${shrinkRate}, 0, 0, ${shrinkRate}, ${transformX}, ${transformY})`,
+        transform: `matrix(${shrinkRate}, 0, 0, ${shrinkRate}, ${transformX}, ${transformY})`
       });
       setRate(shrinkRate);
     }
-  }
+  };
 
   /** 平移 */
   const handleMouseDown = (event: React.MouseEvent<HTMLImageElement>) => {
@@ -83,7 +82,7 @@ const DynamicStyle= () => {
     setMouseDowmFlag(true); // 控制只有在鼠标按下后才会执行mousemove
     setMouseDowmPos({
       x: clientX,
-      y: clientY,
+      y: clientY
     });
   };
 
@@ -100,12 +99,12 @@ const DynamicStyle= () => {
 
     setMouseDowmPos({
       x: clientX,
-      y: clientY,
+      y: clientY
     });
     setImgStyle({
       ...imgStyle,
       left: offsetX,
-      top: offsetY,
+      top: offsetY
     });
   };
 
@@ -123,7 +122,7 @@ const DynamicStyle= () => {
     return `${initial.width / 2 - Number(imgInfo.lableLeft) * imgScaleRateX}px ${
       initial.height / 2 - Number(imgInfo.lableTop) * imgScaleRateY
     }px`;
-  }
+  };
 
   /** 图标位置计算 */
   const labelStyle = (): React.CSSProperties => {
@@ -137,17 +136,16 @@ const DynamicStyle= () => {
       left: labelLeft,
       top: labelTop,
       transformOrigin: labelTransformOrigin(),
-      transform: `matrix(${rate}, 0, 0, ${rate}, ${transformX}, ${transformY})`,
-    }
-  }
-
+      transform: `matrix(${rate}, 0, 0, ${rate}, ${transformX}, ${transformY})`
+    };
+  };
 
   return (
     <div className={styles.imgArea}>
-      <img 
-        src={imgInfo.src} 
-        alt='part' 
-        height={326} 
+      <img
+        src={imgInfo.src}
+        alt='part'
+        height={326}
         style={imgStyle}
         ref={imgRef}
         onWheel={handleWheelImage}
@@ -158,7 +156,7 @@ const DynamicStyle= () => {
       </img>
       <span className={styles.label} style={labelStyle()}></span>
     </div>
-  )
-}
+  );
+};
 
 export default DynamicStyle;

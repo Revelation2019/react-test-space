@@ -1,4 +1,4 @@
 // import 'react-app-polyfill/ie11';
 // import 'react-app-polyfill/stable';
 // import 'abort-controller/polyfill';
-import './App'
+import './App';

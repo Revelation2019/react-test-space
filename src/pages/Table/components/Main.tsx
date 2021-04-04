@@ -5,12 +5,11 @@ import Table from './table';
 interface IProps extends RouteConfigComponentProps<{}> {}
 
 const Main = (props: IProps) => {
-
   return (
     <div>
       <Table></Table>
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

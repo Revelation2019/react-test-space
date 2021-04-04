@@ -1,8 +1,7 @@
-import { makeAutoObservable  } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 class KeyofStore {
-
-  constructor() {
+  constructor () {
     makeAutoObservable(this);
   }
 
@@ -11,7 +10,6 @@ class KeyofStore {
   setValue = (key: keyof KeyofStore, value: any) => {
     this[key] = value;
   }
-
 }
 
-export default KeyofStore
+export default KeyofStore;

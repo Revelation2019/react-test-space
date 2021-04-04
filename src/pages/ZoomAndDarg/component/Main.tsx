@@ -6,7 +6,7 @@ const Main = () => {
   return (
     // <DynamicStyle></DynamicStyle>
     <Canvas></Canvas>
-  )
-}
+  );
+};
 
 export default Main;

@@ -7,7 +7,7 @@ interface IProps extends RouteConfigComponentProps<void> {
 }
 
 const Main = (props: IProps) => {
-  return <div><ClassRef></ClassRef></div>
-}
+  return <div><ClassRef></ClassRef></div>;
+};
 
 export default Main;

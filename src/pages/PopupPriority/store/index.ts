@@ -1,6 +1,6 @@
-import BaseStore from "./BaseStore";
+import BaseStore from './BaseStore';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  baseStore: new BaseStore(),
-}
+  baseStore: new BaseStore()
+};

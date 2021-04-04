@@ -2,11 +2,10 @@
 import { makeAutoObservable } from 'mobx';
 
 class Store {
-
-  constructor() {
+  constructor () {
     makeAutoObservable(this);
   }
-  
+
   count = 0;
 
   setCount = (count: number) => {

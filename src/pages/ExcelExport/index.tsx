@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import Main from './components/Main';
 
 const ExportExcel = (props: any) => {
-  return <Main {...props}/>
-}
+  return <Main {...props}/>;
+};
 
 export default ExportExcel;

@@ -3,8 +3,8 @@ import './index.less';
 import Main from './component/Main';
 import stores from './store';
 
-const EmptyPage = (props) => {
-  return <Main {...stores} {...props}/>
-}
+const EmptyPage = (props: any) => {
+  return <Main {...stores} {...props}/>;
+};
 
 export default EmptyPage;

@@ -7,7 +7,6 @@ interface IProps {
 }
 
 const Main = (props: IProps) => {
-
   const { store } = props;
   const { fetchData } = store;
 
@@ -29,7 +28,7 @@ const Main = (props: IProps) => {
       {/* <br/> */}
       <input type="submit" value="提交"/>
     </form>
-  )
-}
+  );
+};
 
 export default inject('store')(observer(Main));

@@ -1,7 +1,7 @@
 import { Provider } from 'mobx-react';
 import stores from './store';
-import {renderRoutes} from 'react-router-config'
-import routes from './config/routes'
+import { renderRoutes } from 'react-router-config';
+import routes from './config/routes';
 import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
@@ -13,4 +13,4 @@ ReactDOM.render(
     </Provider>
   </HashRouter>,
   document.getElementById('root')
-)
+);

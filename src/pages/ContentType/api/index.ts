@@ -8,6 +8,6 @@ export const fetchData = () => {
     headers: {
       // 'Content-Type': 'application/x-www-form-urlencoded'
       'Content-Type': 'multipart/form-data'
-    },
+    }
   }).then(res => res);
-}
+};

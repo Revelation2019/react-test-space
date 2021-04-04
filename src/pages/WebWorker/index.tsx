@@ -15,7 +15,7 @@ const WebWorker = (props: IProps) => {
     <Provider {...stores}>
       <Main {...props}></Main>
     </Provider>
-  )
-}
+  );
+};
 
 export default WebWorker;

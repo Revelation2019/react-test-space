@@ -1,4 +1,4 @@
-import { fetchData } from "../api";
+import { fetchData } from '../api';
 
 export class Store {
   fetchData = async () => {
@@ -13,4 +13,4 @@ export class Store {
 
 export default {
   store: new Store()
-}
+};

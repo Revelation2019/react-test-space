@@ -10,7 +10,6 @@ interface IProps {
 }
 
 const Main = (props: IProps) => {
-
   const { baseStore } = props;
 
   const { fetchPopup1, fetchPopup2 } = baseStore as BaseStore;
@@ -26,7 +25,7 @@ const Main = (props: IProps) => {
       <ModalOne></ModalOne>
       <ModalTwo></ModalTwo>
     </div>
-  )
-}
+  );
+};
 
 export default inject('baseStore')(observer(Main));

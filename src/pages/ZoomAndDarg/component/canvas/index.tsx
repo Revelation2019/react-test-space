@@ -8,29 +8,27 @@ const HEIGHT = 326;
 
 /** 接口返回的图片坐标是相对于原图左上角的定位 */
 const imgInfo = {
-  lableBottom: "492",
-  lableLeft: "342",
-  lableRight: "353",
-  lableTop: "470",
-  position: "03",
-  src: 'https://parts-images.cassmall.com/bmw_test/322664.jpg?version=16',
-}
+  lableBottom: '492',
+  lableLeft: '342',
+  lableRight: '353',
+  lableTop: '470',
+  position: '03',
+  src: 'https://parts-images.cassmall.com/bmw_test/322664.jpg?version=16'
+};
 
 const Canvas = () => {
-
   const canvasRef = createRef<HTMLCanvasElement>();
   /** 记录鼠标是否按下 */
   const [mouseDowmFlag, setMouseDowmFlag] = useState(false);
   /** 记录鼠标按下的坐标 */
-  const [mouseDowmPos, setMouseDowmPos] = useState<{x: number, y: number}>({x: 0, y: 0});
+  const [mouseDowmPos, setMouseDowmPos] = useState<{x: number, y: number}>({ x: 0, y: 0 });
   /** 记录这次平移之前的距离 */
-  const [offsetDis, setOffsetDis] = useState<{left: number, top: number}>({left: 0, top: 0});
+  const [offsetDis, setOffsetDis] = useState<{left: number, top: number}>({ left: 0, top: 0 });
   /** 图片节点 */
   const [imgElement, setImgElement] = useState<HTMLImageElement>(new Image());
   /** 展示的图片大小 */
-  const [size, setSize] = useState<{width: number, height: number}>({width: WIDTH, height: HEIGHT});
+  const [size, setSize] = useState<{width: number, height: number}>({ width: WIDTH, height: HEIGHT });
 
-  
   /** 初始化图片位置 */
   const initImg = () => {
     /** 初始化一个图片节点对象 */
@@ -52,22 +50,22 @@ const Canvas = () => {
       const labelTop = parseInt(`${imgInfo.lableTop}`, 10) * imgScale;
       ctx.strokeStyle = '#da2727';
       ctx.strokeRect(labelLeft, labelTop, 28, 28);
-      
-      setSize({width, height});
+
+      setSize({ width, height });
       setImgElement(img);
-    }
+    };
     img.height = HEIGHT;
     img.src = imgInfo.src;
-  }
+  };
 
   /** 将浏览器坐标系转化成canvas坐标系 */
   const windowToCanvas = (canvas: HTMLCanvasElement, x: number, y: number) => {
-    var canvasBox = canvas.getBoundingClientRect();
+    const canvasBox = canvas.getBoundingClientRect();
     return {
-        x: (x - canvasBox.left) * (canvas.width/canvasBox.width), // //对canvas元素大小与绘图表面大小不一致时进行缩放
-        y: (y - canvasBox.top) * (canvas.height/canvasBox.height),
+      x: (x - canvasBox.left) * (canvas.width / canvasBox.width), // //对canvas元素大小与绘图表面大小不一致时进行缩放
+      y: (y - canvasBox.top) * (canvas.height / canvasBox.height)
     };
-  }
+  };
 
   /** 图片平移 */
   const handleMouseDown = (event: React.MouseEvent<HTMLCanvasElement>) => {
@@ -81,7 +79,7 @@ const Canvas = () => {
     setMouseDowmFlag(true); // 控制只有在鼠标按下后才会执行mousemove
     setMouseDowmPos({
       x: pos.x,
-      y: pos.y,
+      y: pos.y
     });
   };
 
@@ -92,7 +90,7 @@ const Canvas = () => {
     const { clientX, clientY } = event;
     const canvas = canvasRef.current as HTMLCanvasElement;
     // 相对于canvas坐标
-    const pos = windowToCanvas(canvas, clientX, clientY)
+    const pos = windowToCanvas(canvas, clientX, clientY);
     // 偏移量
     const diffX = pos.x - mouseDowmPos.x;
     const diffY = pos.y - mouseDowmPos.y;
@@ -119,13 +117,13 @@ const Canvas = () => {
     // 更新按下的坐标
     setMouseDowmPos({
       x: pos.x,
-      y: pos.y,
+      y: pos.y
     });
     // 更新上次坐标
     setOffsetDis({
       left: offsetX,
-      top: offsetY,
-    })
+      top: offsetY
+    });
   };
 
   const handleMouseUp = (event: React.MouseEvent<HTMLCanvasElement>) => {
@@ -155,7 +153,7 @@ const Canvas = () => {
     const rate = bigger > 0 ? enlargeRate : shrinkRate;
     const width = size.width * rate;
     const height = size.height * rate;
- 
+
     // 清空画布
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     ctx.drawImage(imgElement, offsetDis.left, offsetDis.top, width, height);
@@ -168,29 +166,28 @@ const Canvas = () => {
     ctx.strokeStyle = '#da2727';
     ctx.strokeRect(labelLeft, labelTop, 28 * totalZoomRateX, 28 * totalZoomRateY);
 
-    setSize({width, height});
+    setSize({ width, height });
     return false;
   };
 
   useEffect(() => {
     /** 初始化图片 */
     initImg();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className={styles.imgArea}>
-      <canvas 
-        ref={canvasRef} 
-        width={WIDTH} 
-        height={HEIGHT} 
+      <canvas
+        ref={canvasRef}
+        width={WIDTH}
+        height={HEIGHT}
         onWheel={handleWheelImage}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
       ></canvas>
     </div>
-  )
-}
+  );
+};
 
 export default Canvas;

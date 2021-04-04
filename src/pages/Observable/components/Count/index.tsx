@@ -5,7 +5,7 @@ const Count = (props: any) => {
     <div>
       { props.dom() }
     </div>
-  )
-}
+  );
+};
 
 export default Count;

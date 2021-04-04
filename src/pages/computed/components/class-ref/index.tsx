@@ -8,15 +8,15 @@ class Father extends React.Component<{}, {}> {
     this.inputRef = el;
   }
 
-  componentDidMount() {
-    console.log(this.inputRef)
+  componentDidMount () {
+    console.log(this.inputRef);
     if (this.inputRef) {
       this.inputRef.focus();
     }
   }
 
-  render() {
-    return <Child generateRef={this.generateRef}></Child>
+  render () {
+    return <Child generateRef={this.generateRef}></Child>;
   }
 }
 
